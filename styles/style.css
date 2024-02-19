@@ -1,0 +1,72 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Raleway:ital,wght@0,800;1,800&display=swap') ;
+
+.font-raleway{
+    font-family: "Raleway", sans-serif;
+}
+
+.font-inter{
+    font-family: "Inter", sans-serif;
+}
+
+
+
+/* seat's - design */
+
+/* .bus{
+	border: 1px solid #ddd;
+	width: 20%;
+	padding: 0.5rem;
+	border-radius: 4px;
+
+	&.seat2-3, &.seat2-2{
+		.seats{
+			.seat{
+				&:nth-child(2) {
+			    	margin-right: 14.28571428571429%;
+			  	}
+			}
+		}
+	}
+
+	&.seat3-2{
+		.seats{
+			.seat{
+				&:nth-child(3) {
+			    	margin-right: 14.28571428571429%;
+			  	}
+			}
+		}
+	}
+} */
+
+/* .seats {
+  	display: flex;
+  	flex-direction: row;
+  	flex-wrap: nowrap;
+  	-ms-flex-pack: center !important;
+	  justify-content: center !important;
+  	padding: 0;
+  	margin-bottom: 2px;
+
+  	.seat {
+	  	display: flex;
+	  	flex: 0 0 14.28571428571429%;
+	  	padding: 3px;
+	  	position: relative;
+
+	  	label {
+			border-radius: 4px;
+			padding: 0;
+			width: 25px;
+			height: 25px;
+			margin-bottom: 0.1rem;
+			display: inline-block;
+			font-size: 0.7rem;
+		}
+	}
+} */
+
+
+/* pop up */
+

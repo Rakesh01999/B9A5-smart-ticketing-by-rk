@@ -1,97 +1,103 @@
+// Get a reference to the button element
+const button = document.getElementById("btn");
+
+// Disable the button
+button.disabled = true;
+
 // console.log('connected yes') ;
 
-const seats = document.querySelectorAll('.seat') ;
+const seats = document.querySelectorAll('.seat');
 // console.log(seats) ;
 
-let totalSeat = 40 ;
-let seatCounter = 0 ;
-let totalPrice = 0 ;
-for(let i=0 ;i<seats.length ;i++){
+let totalSeat = 40;
+let seatCounter = 0;
+let totalPrice = 0;
+for (let i = 0; i < seats.length; i++) {
     const seat = seats[i];
     // console.log(seat) ;
-    seat.addEventListener('click',function(event){
+    seat.addEventListener('click', function (event) {
         // console.log('click') ;
-        const seatName = seat.querySelector('span').innerText ;
+        const seatName = seat.querySelector('span').innerText;
         // console.log(seatName) ;
 
         // set bg color
         event.target.style.backgroundColor = '#1DD100';
-       
-        const seatNameContainer = document.getElementById('seatName-container') ;
 
-        const p = document.createElement('p') ;
-        p.innerText = seatName + " " + 'Economoy' + ' ' + '550' ;
+        const seatNameContainer = document.getElementById('seatName-container');
+
+        const p = document.createElement('p');
+        p.innerText = seatName + " " + 'Economoy' + ' ' + '550';
         seatNameContainer.appendChild(p);
-        seatCounter++ ;
-        totalSeat-- ;
+        seatCounter++;
+        totalSeat--;
 
-        totalPrice+=550 ;
+        totalPrice += 550;
         // console.log(totalPrice) ;
-        document.getElementById('seat-counter').innerText = seatCounter ;
-        document.getElementById('total-seat').innerText = totalSeat ;
-        document.getElementById('total-price').innerText = 'BDT' + ' ' + totalPrice ;
+        document.getElementById('seat-counter').innerText = seatCounter;
+        document.getElementById('total-seat').innerText = totalSeat;
+        document.getElementById('total-price').innerText = 'BDT' + ' ' + totalPrice;
+        document.getElementById('grand-total').innerText = 'BDT' + ' ' + totalPrice;
+        // const grandTotal = document.getElementById('grand-total') ;
+
     });
 }
 
 
-const applyBtn = document.getElementById('apply-btn') ;
+const applyBtn = document.getElementById('apply-btn');
 
-applyBtn.addEventListener('click', function(){
+applyBtn.addEventListener('click', function () {
     // console.log('clicked') ;
 
     // get the value from input
     // const couponElement = document.getElementById('input-field').value ;
     // const couponCode = couponElement.split(' ').join('').toUpperCase(); 
     // console.log(couponCode) ;
-    const couponCode = document.getElementById('input-field').value ;
+    const couponCode = document.getElementById('input-field').value;
     // const couponCode = couponElement.split(' ').join('').toUpperCase(); 
-    console.log(couponCode) ;
-    
-    
-    if(totalPrice > 0 && totalPrice <= 2200){
-        if(couponCode == 'NEW15'){
+    console.log(couponCode);
+
+
+    if (totalPrice > 0 && totalPrice <= 2200) {
+        if (couponCode == 'NEW15') {
             // console.log( totalPrice) ;
-            const discountElement = document.getElementById('discount-price') ;
+            const discountElement = document.getElementById('discount-price');
             // console.log(discountElement) ;
-            const discountAmount = totalPrice * 0.15 ;
-            discountElement.innerText = discountAmount.toFixed(2) ;
+            const discountAmount = totalPrice * 0.15;
+            discountElement.innerText = discountAmount.toFixed(2);
             // console.log(discountAmount) ;
-            const restTotal = totalPrice - discountAmount ;
-            const total = document.getElementById('grand-total') ;
-            total.innerText = 'BDT' + ' ' + restTotal.toFixed(2) ;
-            document.getElementById('input-field').value ='' ;
-            
+            const restTotal = totalPrice - discountAmount;
+            const total = document.getElementById('grand-total');
+            total.innerText = 'BDT' + ' ' + restTotal.toFixed(2);
+            document.getElementById('input-field').value = '';
+            // Enable the button
+            button.disabled = false;
         }
-        else if(couponCode == 'Couple 20'){
+        else if (couponCode == 'Couple 20') {
             // console.log( totalPrice) ;
-            // const discountElement = document.getElementById('discountPrice') ;
+            const discountElement = document.getElementById('discount-price');
             // console.log(discountElement) ;
-            const discountAmount = totalPrice * 0.2 ;
-            // discountElement.innerText = discountAmount.toFixed(2) ;
+            const discountAmount = totalPrice * 0.2;
+            discountElement.innerText = discountAmount.toFixed(2);
             // console.log(discountAmount) ;
-            const restTotal = totalPrice - discountAmount ;
-            const total = document.getElementById('grand-total') ;
-            total.innerText = 'BDT' + ' ' + restTotal.toFixed(2) ;
-            document.getElementById('input-field').value ='' ;
-            
+            const restTotal = totalPrice - discountAmount;
+            const total = document.getElementById('grand-total');
+            total.innerText = 'BDT' + ' ' + restTotal.toFixed(2);
+            document.getElementById('input-field').value = '';
+            // Enable the button
+            button.disabled = false;
         }
-        else{
-            alert('Invalid Coupon Code') ;
-            document.getElementById('input-field').value ='' ;
+        else {
+            alert('Invalid Coupon Code');
+            document.getElementById('input-field').value = '';
         }
     }
-    else{
-        alert('Please select minimum 1 and maximum 4 seat') ;
-        document.getElementById('input-field').value ='' ;
+    else {
+        alert('Please select minimum 1 and maximum 4 seat');
+        document.getElementById('input-field').value = '';
     }
 });
 
 
-function click(){
-    const fullSite = document.getElementById('full-site');
-    fullSite.classList.add("hidden") ;
 
-    const successSection = document.getElementById('success');
-    successSection.classList.remove("hidden"); 
-}
+
 
